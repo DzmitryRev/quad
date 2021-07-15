@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Image, Text, StyleSheet } from 'react-native';
 import { color } from '../styles/variables';
-import { useFonts, Lato_400Regular } from '@expo-google-fonts/lato';
 import { StarIcon } from '../styles/icons/Icons';
 
 export const Item = ({ img, price, name, rating, ...props }) => {

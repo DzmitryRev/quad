@@ -2,10 +2,14 @@ import { Pressable, View, Text, StyleSheet } from 'react-native';
 import { color } from '../styles/variables';
 import React from 'react';
 
-export const Button = ({ title }) => {
+export const Button = ({ title, action, active }) => {
+  console.log(action);
   return (
     <View>
-      <Pressable style={styles.button}>
+      <Pressable
+        style={active === title ? styles.active : styles.inactive}
+        onPress={() => action(title)}
+      >
         <Text style={styles.text}>{title}</Text>
       </Pressable>
     </View>
@@ -13,17 +17,23 @@ export const Button = ({ title }) => {
 };
 
 const styles = StyleSheet.create({
-  button: {
-    backgroundColor: color.Primary,
-    borderRadius: 12,
-    padding: 16,
-    minWidth: 83,
-  },
   text: {
     fontFamily: 'Lato_400Regular',
     fontSize: 16,
     lineHeight: 22,
     color: color.White,
     textAlign: 'center',
+  },
+  active: {
+    backgroundColor: color.Primary,
+    borderRadius: 12,
+    padding: 16,
+    minWidth: 83,
+  },
+  inactive: {
+    backgroundColor: color.Gray,
+    borderRadius: 12,
+    padding: 16,
+    minWidth: 83,
   },
 });

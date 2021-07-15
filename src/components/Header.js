@@ -2,12 +2,8 @@ import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { BurgerIcon } from '../styles/icons/Icons';
 import { color } from '../styles/variables';
-import { useFonts, Lato_400Regular } from '@expo-google-fonts/lato';
 
 export const Header = (props) => {
-  let fontsLoaded = useFonts({
-    Lato_400Regular,
-  });
   return (
     <View style={styles.header}>
       <Text style={styles.text}>Quadrojoy</Text>
@@ -31,7 +27,7 @@ const styles = StyleSheet.create({
     backgroundColor: color.Bcg,
   },
   text: {
-    fontFamily: 'Lato_400Regular',
+    // fontFamily: 'Lato_400Regular',
     fontSize: 24,
   },
 });

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import { Footer } from '../components';
 import { color } from '../styles/variables';
 
 export const LikePage = (props) => {

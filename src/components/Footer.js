@@ -10,31 +10,25 @@ import {
 } from '../styles/icons/Icons';
 import { color } from '../styles/variables';
 
-export const Footer = ({ screenName }) => {
-  const activeColor = '#317AE8';
-  const inactiveColor = '#939399';
-
-  const Navigate = (icon, route) => {
-    setActive(icon);
+export const Footer = () => {
+  const Navigate = (id, route) => {
+    setActive(id);
     RootNavigation.navigate(route);
   };
 
   const [active, setActive] = useState(1);
 
-  console.log('render');
-  console.log(active);
-
   return (
     <View style={styles.footer}>
       <TouchableOpacity onPress={() => Navigate(1, 'Main')}>
-        <HomeIcon color={active === 1 ? activeColor : inactiveColor} />
+        <HomeIcon color={active === 1 ? color.Primary : color.Gray} />
       </TouchableOpacity>
       <TouchableOpacity onPress={() => Navigate(2, 'Liked')}>
-        <LikeIcon color={active === 2 ? activeColor : inactiveColor} />
+        <LikeIcon color={active === 2 ? color.Primary : color.Gray} />
       </TouchableOpacity>
       <SearchIcon />
       <TouchableOpacity onPress={() => Navigate(4, 'Card')}>
-        <CardIcon color={active === 4 ? activeColor : inactiveColor} />
+        <CardIcon color={active === 4 ? color.Primary : color.Gray} />
       </TouchableOpacity>
     </View>
   );
