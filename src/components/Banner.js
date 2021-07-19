@@ -1,7 +1,7 @@
-import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
-import { color } from '../styles/variables';
-import ban from '../../assets/Banner.png';
+import React from "react";
+import { View, Image, StyleSheet } from "react-native";
+import { color } from "../styles/variables";
+import ban from "../assets/images/Banner.png";
 
 export const Banner = () => {
   return (
@@ -13,12 +13,13 @@ export const Banner = () => {
 
 const styles = StyleSheet.create({
   banner: {
-    width: '100%',
+    width: "100%",
     backgroundColor: color.Primary,
     borderRadius: 16,
+    height: "100%",
   },
   image: {
-    width: 230,
-    height: 164,
+    width: "68%",
+    height: "100%",
   },
 });

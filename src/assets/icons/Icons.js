@@ -1,5 +1,5 @@
-import React from 'react';
-import Svg, { Path } from 'react-native-svg';
+import React from "react";
+import Svg, { Path } from "react-native-svg";
 
 export const HomeIcon = ({ color }) => {
   return (
@@ -34,7 +34,7 @@ export const LikeIcon = ({ color }) => {
     </Svg>
   );
 };
-export const SearchIcon = (props) => {
+export const SearchIcon = ({ color }) => {
   return (
     <Svg
       xmlns="http://www.w3.org/2000/svg"
@@ -42,10 +42,9 @@ export const SearchIcon = (props) => {
       height={32}
       fill="none"
       viewBox="0 0 32 32"
-      {...props}
     >
       <Path
-        stroke="#939399"
+        stroke={color}
         d="M13.333 22.667a9.333 9.333 0 100-18.667 9.333 9.333 0 000 18.667zM28 28l-8-8"
       />
     </Svg>
@@ -97,6 +96,23 @@ export const StarIcon = (props) => {
         fill="#F5D150"
         stroke="#F5D150"
         d="M7 10.354l-3.6 1.893.687-4.01L1.171 5.4l4.025-.584 1.8-3.647 1.8 3.647 4.025.584-2.917 2.839.688 4.01L7 10.353z"
+      />
+    </Svg>
+  );
+};
+
+export const BackButton = () => {
+  return (
+    <Svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={9}
+      height={18}
+      fill="none"
+      viewBox="0 0 9 18"
+    >
+      <Path
+        fill="#1F1F1F"
+        d="M7.308 17.25a1.185 1.185 0 01-.92-.433L.518 9.689a1.167 1.167 0 010-1.487l5.894-7.029a1.182 1.182 0 012.082.642c.03.31-.067.618-.267.858L2.958 8.95l5.269 6.378a1.168 1.168 0 01-.282 1.744c-.191.118-.412.18-.637.177z"
       />
     </Svg>
   );

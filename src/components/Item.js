@@ -1,7 +1,7 @@
-import React from 'react';
-import { View, Image, Text, StyleSheet } from 'react-native';
-import { color } from '../styles/variables';
-import { StarIcon } from '../styles/icons/Icons';
+import React from "react";
+import { View, Image, Text, StyleSheet } from "react-native";
+import { color } from "../styles/variables";
+import { StarIcon } from "../assets/icons/Icons";
 
 export const Item = ({ img, price, name, rating, ...props }) => {
   return (
@@ -11,13 +11,15 @@ export const Item = ({ img, price, name, rating, ...props }) => {
       <View style={styles.textContainer}>
         <View style={styles.nameContainer}>
           <Text style={styles.name}>{name}</Text>
-        </View>
-        <View style={styles.priceContainer}>
           <Text style={styles.price}>{price}</Text>
-          <View style={styles.ratingContainer}>
+        </View>
+
+        <View style={styles.ratingContainer}>
+          <Text style={styles.rating}>
+            {" "}
             <StarIcon />
-            <Text style={styles.rating}>{rating}</Text>
-          </View>
+            {rating}
+          </Text>
         </View>
       </View>
     </View>
@@ -26,12 +28,15 @@ export const Item = ({ img, price, name, rating, ...props }) => {
 
 const styles = StyleSheet.create({
   item: {
+    display: "flex",
+    justifyContent: "space-between",
     borderRadius: 12,
     backgroundColor: color.White,
-    width: 202,
     borderColor: color.Gray_light,
+    width: 202,
+    height: "100%",
     borderWidth: 1,
-    borderStyle: 'solid',
+    borderStyle: "solid",
     marginRight: 17,
   },
   image: {
@@ -39,30 +44,30 @@ const styles = StyleSheet.create({
     height: 168,
   },
   textContainer: {
-    paddingTop: 12,
-    paddingRight: 18,
-    paddingLeft: 18,
-    paddingBottom: 18,
+    height: "33%",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: 18,
   },
   nameContainer: {
-    marginBottom: 12,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    paddingBottom: 16,
+    paddingTop: 12,
   },
   name: {
     fontSize: 14,
-  },
-  priceContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
   },
   price: {
     fontSize: 16,
   },
   ratingContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "flex-end",
+    paddingBottom: 16,
   },
 
   rating: {
