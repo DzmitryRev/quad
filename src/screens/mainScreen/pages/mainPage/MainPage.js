@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  SafeAreaView,
 } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -22,82 +23,91 @@ export const MainPage = ({
   buttons,
 }) => {
   return (
-    <ScrollView style={styles.mainPage}>
-      <View style={styles.bannerContainer}>
-        <Banner />
-      </View>
-
-      <View style={styles.buttonContainer}>
-        {buttons.map((item, index) => (
-          <Button
-            key={index}
-            title={item}
-            type="sort"
-            action={setSortBy}
-            active={selectedSort}
+    <ScrollView contentContainerStyle={{ minHeight: "100%" }}>
+      <View
+        style={{
+          minHeight: "100%",
+          paddingHorizontal: 12,
+          backgroundColor: color.Bcg,
+        }}
+      >
+        <View style={{ height: "55%" }}>
+          <View
+            style={{
+              height: "68%",
+              paddingBottom: 16,
+            }}
           />
-        ))}
-      </View>
-
-      <View style={styles.itemTitleContainer}>
-        <Text style={styles.itemTitle}>All quadcopters</Text>
-      </View>
-
-      <ScrollView horizontal={true} style={styles.itemContainer}>
-        {items.map((item) => (
-          <TouchableOpacity
-            onPress={() =>
-              navigation.navigate("ItemScreen", {
-                title: item.name,
-                img: item.image,
-                price: item.price,
-                rating: item.rating,
-                description: item.description,
-              })
-            }
-            activeOpacity={0.8}
-            key={item.id}
+          <View
+            style={{
+              flexDirection: "row",
+            }}
           >
-            <Item
-              name={item.name}
-              img={item.image}
-              price={item.price}
-              rating={item.rating}
-            />
-          </TouchableOpacity>
-        ))}
-      </ScrollView>
+            {buttons.map((item, index) => (
+              <View
+                key={index}
+                style={{
+                  flex: 1,
+                  justifyContent: "center",
+                  alignItems: "center",
+                  paddingHorizontal: 5,
+                }}
+              >
+                <Button
+                  title={item}
+                  type="sort"
+                  action={setSortBy}
+                  active={selectedSort}
+                />
+              </View>
+            ))}
+          </View>
+          <View style={styles.itemTitleContainer}>
+            <Text style={styles.itemTitle}>All quadcopters</Text>
+          </View>
+        </View>
+
+        <View style={{ height: 290 }}>
+          <ScrollView
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            style={styles.itemContainer}
+          >
+            {items.map((item) => (
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate("ItemScreen", {
+                    title: item.name,
+                    img: item.image,
+                    price: item.price,
+                    rating: item.rating,
+                    description: item.description,
+                  })
+                }
+                activeOpacity={0.8}
+                key={item.id}
+              >
+                <Item
+                  name={item.name}
+                  img={item.image}
+                  price={item.price}
+                  rating={item.rating}
+                />
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
+        </View>
+      </View>
     </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  mainPage: {
-    paddingTop: 32,
-    paddingBottom: 28,
-    paddingHorizontal: 12,
-    backgroundColor: color.Bcg,
-  },
-
-  bannerContainer: {
-    height: 163,
-    marginBottom: 32,
-  },
-
-  buttonContainer: {
-    marginBottom: 28,
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
   itemTitleContainer: {
-    height: 24,
-    marginBottom: 21,
+    flex: 1,
+    justifyContent: "center",
   },
   itemTitle: {
     fontSize: 20,
-  },
-  itemContainer: {
-    height: 248,
   },
 });

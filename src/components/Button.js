@@ -1,28 +1,39 @@
-import { Pressable, View, Text, StyleSheet } from 'react-native';
-import { color } from '../styles/variables';
-import React from 'react';
+import {
+  Pressable,
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
+import { color } from "../styles/variables";
+import React from "react";
 
 export const Button = ({
   title,
-  action = () => console.log('Error'),
+  action = () => console.log("Error"),
   active,
-  type = 'primary',
+  type = "primary",
 }) => {
   switch (type) {
-    case 'sort':
+    case "sort":
       return (
-        <View style={active === title ? styles.active : styles.inactive}>
+        <View
+          style={[
+            styles.button,
+            active === title ? styles.primary : styles.ghost,
+          ]}
+        >
           <Pressable onPress={() => action(title)}>
             <Text style={styles.text}>{title}</Text>
           </Pressable>
         </View>
       );
-    case 'primary':
+    case "primary":
       return (
-        <View style={styles.primary}>
-          <Pressable onPress={() => action()}>
+        <View style={[styles.button, styles.primary]}>
+          <TouchableOpacity onPress={() => action()}>
             <Text style={styles.text}>{title}</Text>
-          </Pressable>
+          </TouchableOpacity>
         </View>
       );
     default:
@@ -34,29 +45,19 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 22,
     color: color.White,
-    textAlign: 'center',
+    textAlign: "center",
   },
-  active: {
+  button: {
     height: 46,
-    display: 'flex',
-    justifyContent: 'center',
-    backgroundColor: color.Primary,
+    display: "flex",
+    justifyContent: "center",
     borderRadius: 12,
-    width: '21%',
-  },
-  inactive: {
-    backgroundColor: color.Gray,
-    borderRadius: 12,
-    display: 'flex',
-    justifyContent: 'center',
-    width: '21%',
+    width: "100%",
   },
   primary: {
-    height: 46,
-    display: 'flex',
-    justifyContent: 'center',
     backgroundColor: color.Primary,
-    borderRadius: 12,
-    width: '100%',
-  }
+  },
+  ghost: {
+    backgroundColor: color.Gray,
+  },
 });

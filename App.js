@@ -7,7 +7,16 @@ import { store } from "./src/redux/store";
 import { ItemScreenContainer, MainScreen } from "./src/screens";
 import { color } from "./src/styles/variables";
 import { BackButton, BurgerIcon } from "./src/assets/icons/Icons";
+import { YellowBox } from "react-native";
+import _ from "lodash";
 
+YellowBox.ignoreWarnings(["Setting a timer"]);
+const _console = _.clone(console);
+console.warn = (message) => {
+  if (message.indexOf("Setting a timer") <= -1) {
+    _console.warn(message);
+  }
+};
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -16,6 +25,7 @@ export default function App() {
     headerStyle: {
       backgroundColor: color.Bcg,
       borderBottomWidth: 0,
+      elevation: 0,
     },
     headerTitle: "Quadrojoy",
     headerTitleStyle: {
@@ -28,8 +38,9 @@ export default function App() {
   };
   const miniHeaderOptions = {
     headerStyle: {
-      backgroundColor: color.White,
+      backgroundColor: color.Bcg,
       borderBottomWidth: 0,
+      elevation: 0,
     },
     headerTitle: false,
     headerBackImage: () => <BackButton />,

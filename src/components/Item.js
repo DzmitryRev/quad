@@ -6,7 +6,7 @@ import { StarIcon } from "../assets/icons/Icons";
 export const Item = ({ img, price, name, rating, ...props }) => {
   return (
     <View style={styles.item}>
-      <Image source={img} style={styles.image}></Image>
+      <Image source={{ uri: img }} style={styles.image}></Image>
 
       <View style={styles.textContainer}>
         <View style={styles.nameContainer}>
@@ -33,8 +33,8 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     backgroundColor: color.White,
     borderColor: color.Gray_light,
-    width: 202,
-    height: "100%",
+    width: 204,
+    height: 248,
     borderWidth: 1,
     borderStyle: "solid",
     marginRight: 17,

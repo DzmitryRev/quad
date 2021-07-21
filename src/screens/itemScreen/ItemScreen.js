@@ -9,8 +9,12 @@ import {
   Pressable,
   Alert,
   ScrollView,
+  KeyboardAvoidingView,
+  PixelRatio,
 } from "react-native";
+import { Button } from "../../components";
 import { color } from "../../styles/variables";
+import { Form } from "./Form";
 
 export const ItemScreen = ({
   route,
@@ -21,68 +25,88 @@ export const ItemScreen = ({
   closeRequest,
 }) => {
   const { title, img, price, description } = route.params;
-  return (
-    <View style={styles.itemPage}>
-      <ScrollView>
-        <Image source={img} style={styles.image}></Image>
-        <Text style={styles.pageTitle}>Ordinary quadcopter</Text>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.price}>{price}</Text>
-        <Text style={styles.description}>{description}</Text>
-        {/* <Form SetOrderThunk={SetOrderThunk} title={title} /> */}
-      </ScrollView>
 
-      {/* <View style={styles.centeredView}>
-         <Modal
+  return (
+    <View
+      style={{
+        height: "100%",
+        paddingHorizontal: 12,
+        backgroundColor: color.Bcg,
+      }}
+    >
+      <Image source={{ uri: img }} style={{ height: "40%" }}></Image>
+      <View style={{ height: "60%" }}>
+        <View style={{ height: "50%", paddingTop: "5%" }}>
+          {PixelRatio.get() <= 2 ? (
+            <></>
+          ) : (
+            <Text
+              style={{
+                fontSize: 16,
+                lineHeight: 22,
+                color: color.Black,
+              }}
+            >
+              Ordinary quadcopter
+            </Text>
+          )}
+
+          <Text
+            style={
+              PixelRatio.get() <= 2
+                ? { fontSize: 18, lineHeight: 18, marginBottom: "1%" }
+                : { fontSize: 28, lineHeight: 36, marginBottom: "1%" }
+            }
+          >
+            {title}
+          </Text>
+          <Text
+            style={{
+              fontSize: 20,
+              lineHeight: 24,
+              color: color.Primary,
+              marginBottom: "2.5%",
+            }}
+          >
+            {price}
+          </Text>
+          <Text style={{ fontSize: 16, lineHeight: 22, color: color.Gray }}>
+            {description}
+          </Text>
+        </View>
+        <View
+          style={{
+            height: "50%",
+            backgroundColor: color.Bcg,
+          }}
+        >
+          <Form SetOrderThunk={SetOrderThunk} title={title} />
+        </View>
+      </View>
+      <View style={styles.centeredView}>
+        <Modal
           animationType="slide"
           transparent={true}
           visible={modalVisible}
           onRequestClose={() => {
-            Alert.alert('Modal has been closed.');
+            Alert.alert("Modal has been closed.");
             closeRequest();
           }}
         >
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
-                
-              <Text style={styles.modalText}>
-              {request?'true': 'false'}
-              </Text>
-              <Pressable
-                style={[styles.button, styles.buttonClose]}
-                onPress={() => closeRequest()}
-              >
-                <Text style={styles.textStyle}>Hide Modal</Text>
-              </Pressable>
+              <Text style={styles.modalText}>{request ? "true" : "false"}</Text>
+
+              <Button type="primary" title="ok" action={closeRequest} />
             </View>
           </View>
-        </Modal> 
-
-
-
-      </View> */}
+        </Modal>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  itemPage: {
-    minHeight: "100%",
-    paddingHorizontal: 12,
-    backgroundColor: color.White,
-    // display: 'flex',
-    // justifyContent: 'space-between'
-  },
-  image: {
-    width: "100%",
-    height: 281,
-    paddingBottom: 24,
-  },
-  pageTitle: {
-    height: 22,
-    fontSize: 16,
-    lineHeight: 22,
-  },
   title: {
     height: 36,
     fontSize: 28,
@@ -103,19 +127,14 @@ const styles = StyleSheet.create({
     color: color.Gray,
     marginBottom: 36,
   },
-  modal: {
-    width: 100,
-    height: 100,
-    backgroundColor: color.Black,
-  },
   centeredView: {
-    flex: 1,
-    justifyContent: "center",
+    top: "30%",
     alignItems: "center",
-    marginTop: 22,
+    marginHorizontal: 12,
   },
   modalView: {
-    margin: 20,
+    width: "100%",
+    height: 248,
     backgroundColor: "white",
     borderRadius: 20,
     padding: 35,

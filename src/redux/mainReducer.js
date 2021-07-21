@@ -9,7 +9,7 @@ const initialState = {
   items: [],
   selectedSort: "All",
   requestStatus: false,
-  request: null,
+  request: "asasas",
 };
 
 const mainReducer = (state = initialState, action) => {
