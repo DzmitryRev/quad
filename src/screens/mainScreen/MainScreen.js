@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import { CardPage, LikePage, MainPageContainer } from "./pages";
+import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+import { CardPage, LikePage, MainPageContainer } from "./pages";
 import { SearchPage } from "./pages/searchPage/SearchPage";
 import {
   CardIcon,
@@ -8,11 +9,12 @@ import {
   LikeIcon,
   SearchIcon,
 } from "../../assets/icons/Icons";
+
 import { color } from "../../styles/variables";
 
 const Tab = createBottomTabNavigator();
 
-export const MainScreen = ({ navigation }) => {
+export const MainScreen = () => {
   return (
     <Tab.Navigator
       initialRouteName="Main"

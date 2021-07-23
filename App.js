@@ -7,10 +7,10 @@ import { store } from "./src/redux/store";
 import { ItemScreenContainer, MainScreen } from "./src/screens";
 import { color } from "./src/styles/variables";
 import { BackButton, BurgerIcon } from "./src/assets/icons/Icons";
-import { YellowBox } from "react-native";
+import { LogBox } from "react-native";
 import _ from "lodash";
 
-YellowBox.ignoreWarnings(["Setting a timer"]);
+LogBox.ignoreLogs(["Setting a timer"]);
 const _console = _.clone(console);
 console.warn = (message) => {
   if (message.indexOf("Setting a timer") <= -1) {

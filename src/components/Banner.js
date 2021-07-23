@@ -13,13 +13,15 @@ export const Banner = () => {
 
 const styles = StyleSheet.create({
   banner: {
-    width: "100%",
     backgroundColor: color.Primary,
     borderRadius: 16,
     height: "100%",
+    padding: 20,
   },
   image: {
-    width: "68%",
+    position: "absolute",
+    right: 0,
+    width: "100%",
     height: "100%",
   },
 });

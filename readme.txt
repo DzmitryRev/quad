@@ -21,4 +21,19 @@
 Осталось: 
 -Не работает (работает не с первого нажатия) сабмит формы на телефоне. (В web все работает).
 -Работа с всплывающей клавиатурой.
- 
+
+----
+-Валидация формы готова
+-Ошибка с сабмитом исправлена
+
+22.07: 
+-Исправлен warning firebase
+(from: import firebase from 'firebase' => to: import firebase from 'firebase/app'; import 'firebase/firestore')
+
+23.07: 
+-Приложение готово на android 
+Исправить на ios: 
+-ScrollView
+-KeyboardAvoidingView
+-Images Uri
+-BorderBottom Header

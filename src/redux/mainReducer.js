@@ -9,7 +9,7 @@ const initialState = {
   items: [],
   selectedSort: "All",
   requestStatus: false,
-  request: "asasas",
+  requestMessage: null,
 };
 
 const mainReducer = (state = initialState, action) => {
@@ -28,13 +28,13 @@ const mainReducer = (state = initialState, action) => {
       return {
         ...state,
         requestStatus: true,
-        request: action.payload,
+        requestMessage: action.payload,
       };
     case CLOSE_REQUEST:
       return {
         ...state,
         requestStatus: false,
-        request: null,
+        requestMessage: null,
       };
     default:
       return state;
@@ -81,11 +81,10 @@ export let SetOrderThunk = (data) => {
         ...data,
       })
       .then((docRef) => {
-        dispatch(setRequestStatus(true));
+        dispatch(setRequestStatus("Ваш заказ принят"));
       })
       .catch((error) => {
-        dispatch(closeRequest());
-        console.log("error");
+        dispatch(setRequestStatus("Ошибка"));
       });
   };
 };

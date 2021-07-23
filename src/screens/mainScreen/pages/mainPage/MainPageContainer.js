@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+
 import { SetSort } from "../../../../utils/sorting";
 import { MainPage } from "./MainPage";
 import {
@@ -21,7 +22,6 @@ const MainPageConnect = ({
     SetItemsThunk();
   }, []);
 
-  console.log(items);
   return (
     <MainPage
       navigation={navigation}

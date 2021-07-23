@@ -1,12 +1,19 @@
 import React from "react";
 import { View, Image, Text, StyleSheet } from "react-native";
-import { color } from "../styles/variables";
+
 import { StarIcon } from "../assets/icons/Icons";
+
+import { color } from "../styles/variables";
 
 export const Item = ({ img, price, name, rating, ...props }) => {
   return (
     <View style={styles.item}>
-      <Image source={{ uri: img }} style={styles.image}></Image>
+      <Image
+        source={{
+          uri: img,
+        }}
+        style={styles.image}
+      ></Image>
 
       <View style={styles.textContainer}>
         <View style={styles.nameContainer}>

@@ -12,22 +12,22 @@ const ItemScreenConnect = ({
   requestStatus,
   setRequestStatus,
   SetOrderThunk,
-  request,
+  requestMessage,
   closeRequest,
 }) => {
   useEffect(() => {
     setModalVisible(requestStatus);
-    setRequest(request);
+    setRequest(requestMessage);
   }, [requestStatus]);
 
   const [modalVisible, setModalVisible] = useState(requestStatus);
-  const [requestt, setRequest] = useState(request);
+  const [request, setRequest] = useState(requestMessage);
 
   return (
     <ItemScreen
       route={route}
       modalVisible={modalVisible}
-      request={requestt}
+      request={request}
       setRequestStatus={setRequestStatus}
       SetOrderThunk={SetOrderThunk}
       closeRequest={closeRequest}
@@ -38,7 +38,7 @@ const ItemScreenConnect = ({
 const mapStateToProps = (state) => {
   return {
     requestStatus: state.main.requestStatus,
-    request: state.main.request,
+    requestMessage: state.main.requestMessage,
   };
 };
 

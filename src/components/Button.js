@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Pressable,
   View,
@@ -5,13 +6,13 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
+
 import { color } from "../styles/variables";
-import React from "react";
 
 export const Button = ({
   title,
   action = () => console.log("Error"),
-  active,
+  selectedSort,
   type = "primary",
 }) => {
   switch (type) {
@@ -20,7 +21,7 @@ export const Button = ({
         <View
           style={[
             styles.button,
-            active === title ? styles.primary : styles.ghost,
+            selectedSort === title ? styles.primary : styles.ghost,
           ]}
         >
           <Pressable onPress={() => action(title)}>
