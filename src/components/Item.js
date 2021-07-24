@@ -5,7 +5,7 @@ import { StarIcon } from "../assets/icons/Icons";
 
 import { color } from "../styles/variables";
 
-export const Item = ({ img, price, name, rating, ...props }) => {
+export const Item = ({ img, price, name, rating }) => {
   return (
     <View style={styles.item}>
       <Image
@@ -23,7 +23,6 @@ export const Item = ({ img, price, name, rating, ...props }) => {
 
         <View style={styles.ratingContainer}>
           <Text style={styles.rating}>
-            {" "}
             <StarIcon />
             {rating}
           </Text>

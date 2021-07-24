@@ -23,8 +23,8 @@ export const MainPage = ({
   buttons,
 }) => {
   return (
-    <ScrollView contentContainerStyle={styles.scrollContainer}>
-      <View style={styles.mainPage}>
+    <View style={styles.mainPage}>
+      <ScrollView contentContainerStyle={{ minHeight: "100%" }}>
         <View style={styles.topPannelContainer}>
           <View style={styles.bannerContainer}>
             <Banner />
@@ -76,19 +76,16 @@ export const MainPage = ({
             ))}
           </ScrollView>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  scrollContainer: {
-    flexGrow: 1,
-  },
   mainPage: {
-    height: "100%",
     paddingHorizontal: 12,
     backgroundColor: color.Bcg,
+    minHeight: "100%",
   },
   topPannelContainer: {
     height: "55%",
@@ -113,8 +110,10 @@ const styles = StyleSheet.create({
   },
   itemTitle: {
     fontSize: 20,
+    fontWeight: "500",
   },
   itemsContainer: {
     height: 290,
+    marginBottom: 40,
   },
 });

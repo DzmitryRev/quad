@@ -25,7 +25,14 @@ export const Button = ({
           ]}
         >
           <Pressable onPress={() => action(title)}>
-            <Text style={styles.text}>{title}</Text>
+            <Text
+              style={[
+                styles.text,
+                selectedSort === title ? styles.textPrimary : styles.textGhost,
+              ]}
+            >
+              {title}
+            </Text>
           </Pressable>
         </View>
       );
@@ -33,7 +40,7 @@ export const Button = ({
       return (
         <View style={[styles.button, styles.primary]}>
           <TouchableOpacity onPress={() => action()}>
-            <Text style={styles.text}>{title}</Text>
+            <Text style={[styles.text, styles.textPrimary]}>{title}</Text>
           </TouchableOpacity>
         </View>
       );
@@ -45,8 +52,14 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     lineHeight: 22,
-    color: color.White,
     textAlign: "center",
+    color: color.White,
+  },
+  textPrimary: {
+    color: color.White,
+  },
+  textGhost: {
+    color: color.Black,
   },
   button: {
     height: 46,
@@ -59,6 +72,8 @@ const styles = StyleSheet.create({
     backgroundColor: color.Primary,
   },
   ghost: {
-    backgroundColor: color.Gray,
+    backgroundColor: color.Bcg,
+    borderWidth: 1,
+    borderColor: color.Gray_light,
   },
 });

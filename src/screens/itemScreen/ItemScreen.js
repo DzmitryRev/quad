@@ -22,8 +22,13 @@ export const ItemScreen = ({
 }) => {
   const { title, img, price, description } = route.params;
   return (
-    <KeyboardAvoidingView behavior="padding" style={{ paddingBottom: 100 }}>
-      <View style={styles.itemScreen}>
+    <KeyboardAvoidingView
+      style={styles.itemScreen}
+      behavior="height"
+      enabled={true}
+      keyboardVerticalOffset={90}
+    >
+      <View>
         <Image source={{ uri: img }} style={styles.image}></Image>
 
         <View style={styles.bottomPanelContainer}>

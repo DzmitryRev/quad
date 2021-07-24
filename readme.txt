@@ -33,7 +33,7 @@
 23.07: 
 -Приложение готово на android 
 Исправить на ios: 
--ScrollView
--KeyboardAvoidingView
--Images Uri
--BorderBottom Header
+-ScrollView +
+-KeyboardAvoidingView +/- (на ios форма скрывается если потянуть вниз при открытой клавиатуре)
+-Images Uri +
+-BorderBottom Header (решил оставить как есть) 
